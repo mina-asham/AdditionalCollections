@@ -1,2 +1,5 @@
 language: csharp
 solution: AdditionalCollections.sln
+script:
+  - xbuild /p:Configuration=Release AdditionalCollections.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./AdditionalCollections.Tests/bin/Release/AdditionalCollections.Tests.dll

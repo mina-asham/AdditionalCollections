@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+
 
 namespace AdditionalCollections.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class HeapTests
     {
-        [TestMethod]
+        [Test]
         public void HeapTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -15,7 +16,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(Heap<int>.DefaultHeapType, heap.HeapType);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithCapacity()
         {
             const int capacity = 123;
@@ -24,7 +25,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(Heap<int>.DefaultHeapType, heap.HeapType);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithHeapType()
         {
             Heap<int> heap = new Heap<int>(HeapType.MinHeap);
@@ -36,7 +37,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(HeapType.MaxHeap, heap.HeapType);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithComparator()
         {
             IComparer<int> comparer = Comparer<int>.Create((i1, i2) => i1 * 10 - i2);
@@ -47,7 +48,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(comparer, heap.Comparer);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithCapacityAndHeapType()
         {
             const int capacity = 123;
@@ -61,7 +62,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(HeapType.MaxHeap, heap.HeapType);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithCapacityAndComparator()
         {
             const int capacity = 123;
@@ -73,7 +74,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(comparer, heap.Comparer);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithHeapTypeAndComparator()
         {
             IComparer<int> comparer = Comparer<int>.Create((i1, i2) => i1 * 10 - i2);
@@ -89,7 +90,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(comparer, heap.Comparer);
         }
 
-        [TestMethod]
+        [Test]
         public void HeapTest_WithCapacityHeapTypeAndComparator()
         {
             const int capacity = 123;
@@ -107,7 +108,7 @@ namespace AdditionalCollections.Tests
 
         }
 
-        [TestMethod]
+        [Test]
         public void PeekTest()
         {
             Heap<int> heap = new Heap<int>(HeapType.MinHeap);
@@ -127,7 +128,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(5, heap.Peek());
         }
 
-        [TestMethod]
+        [Test]
         public void PopTest()
         {
             Heap<int> heap = new Heap<int>(HeapType.MaxHeap);
@@ -145,7 +146,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(0, heap.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void PushTest()
         {
             Heap<int> heap = new Heap<int>(HeapType.MaxHeap);
@@ -157,7 +158,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(3, heap.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void GetEnumeratorTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -175,7 +176,7 @@ namespace AdditionalCollections.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void AddTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -187,7 +188,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(3, heap.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void ClearTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -199,7 +200,7 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(0, heap.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void ContainsTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -216,7 +217,7 @@ namespace AdditionalCollections.Tests
             Assert.IsFalse(heap.Contains(6));
         }
 
-        [TestMethod]
+        [Test]
         public void CopyToTest()
         {
             Heap<int> heap = new Heap<int>();
@@ -232,7 +233,7 @@ namespace AdditionalCollections.Tests
             Assert.IsFalse(array.Contains(0));
         }
 
-        [TestMethod]
+        [Test]
         public void RemoveTest()
         {
             Heap<int> heap = new Heap<int>();
