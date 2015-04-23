@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalCollections", "AdditionalCollections\AdditionalCollections.csproj", "{AB700372-118E-46E5-B429-BC48EE73CE4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalCollections.Tests", "AdditionalCollections.Tests\AdditionalCollections.Tests.csproj", "{EDA6654F-FC80-427A-9253-422CC9FB769E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB700372-118E-46E5-B429-BC48EE73CE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB700372-118E-46E5-B429-BC48EE73CE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB700372-118E-46E5-B429-BC48EE73CE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB700372-118E-46E5-B429-BC48EE73CE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA6654F-FC80-427A-9253-422CC9FB769E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA6654F-FC80-427A-9253-422CC9FB769E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA6654F-FC80-427A-9253-422CC9FB769E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA6654F-FC80-427A-9253-422CC9FB769E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
