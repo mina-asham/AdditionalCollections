@@ -3,3 +3,17 @@ solution: AdditionalCollections.sln
 script:
   - xbuild /p:Configuration=Release AdditionalCollections.sln
   - mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe ./AdditionalCollections.Tests/bin/Release/AdditionalCollections.Tests.dll
+  
+env:
+global:
+  - secure: "KINc5UXT/Z4zUSOyT+mTnPyRnNhn4xOkWbYYfBmyVqH1pIF6MTS05LqVc3sopgnMNEYCgqs3Vo+zcbvACe8CIqoDWqXwJ6mONoOsfcY7PCFe7k6yuLoJk98qjyiz8QYYwpQMQ1AGIMJCWagYh6Zn2XIksH9qnYCqy/7kVPUOQtQ="
+
+addons:
+  coverity_scan:
+    project:
+      name: "mina-asham/AdditionalCollections"
+      description: "Build submitted via Travis CI"
+    notification_email: mina.asham@hotmail.com
+    build_command_prepend: "msbuild /t:Clean"
+    build_command:   "msbuild /t:Rebuild"
+    branch_pattern: coverity_scan
