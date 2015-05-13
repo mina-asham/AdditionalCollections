@@ -80,7 +80,7 @@ namespace AdditionalCollections
         {
             if (_container.Count == 0)
             {
-                throw new Exception("Cannot peak an empty heap.");
+                throw new InvalidOperationException("Cannot peak an empty heap.");
             }
             return _container[0];
         }
@@ -89,7 +89,7 @@ namespace AdditionalCollections
         {
             if (_container.Count == 0)
             {
-                throw new Exception("Cannot pop an empty heap.");
+                throw new InvalidOperationException("Cannot pop an empty heap.");
             }
 
             return RemoveAt(0);
@@ -178,11 +178,6 @@ namespace AdditionalCollections
         #endregion
 
         #region Comparer helper functions
-
-        internal bool Equal(int index1, int index2)
-        {
-            return Equal(_container[index1], _container[index2]);
-        }
 
         internal bool Equal(T item1, T item2)
         {

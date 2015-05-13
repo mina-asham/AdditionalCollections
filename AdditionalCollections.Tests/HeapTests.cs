@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -129,6 +130,14 @@ namespace AdditionalCollections.Tests
         }
 
         [Test]
+        [ExpectedException("System.InvalidOperationException")]
+        public void PeekTest_EmptyHeap()
+        {
+            Heap<int> heap = new Heap<int>();
+            heap.Peek();
+        }
+
+        [Test]
         public void PopTest()
         {
             Heap<int> heap = new Heap<int>(HeapType.MaxHeap);
@@ -144,6 +153,14 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(1, heap.Pop());
             Assert.AreEqual(0, heap.Pop());
             Assert.AreEqual(0, heap.Count);
+        }
+
+        [Test]
+        [ExpectedException("System.InvalidOperationException")]
+        public void PopTest_EmptyHeap()
+        {
+            Heap<int> heap = new Heap<int>();
+            heap.Pop();
         }
 
         [Test]
@@ -173,6 +190,24 @@ namespace AdditionalCollections.Tests
             {
                 Assert.IsTrue(values.Contains(heapEnumerator.Current));
                 values.Remove(heapEnumerator.Current);
+            }
+        }
+
+        [Test]
+        public void GetEnumeratorTest_NoneGeneric()
+        {
+            Heap<int> heap = new Heap<int>();
+            heap.Push(5);
+            heap.Push(1);
+            heap.Push(2);
+
+            HashSet<int> values = new HashSet<int> { 1, 2, 5 };
+
+            IEnumerator heapEnumerator = ((IEnumerable)heap).GetEnumerator();
+            while (heapEnumerator.MoveNext())
+            {
+                Assert.IsTrue(values.Contains((int)heapEnumerator.Current));
+                values.Remove((int)heapEnumerator.Current);
             }
         }
 
@@ -254,6 +289,27 @@ namespace AdditionalCollections.Tests
             Assert.AreEqual(0, heap.Peek());
             heap.Remove(0);
             Assert.AreEqual(0, heap.Count);
+        }
+
+        [Test]
+        public void RemoveTest_NotExisting()
+        {
+            Heap<int> heap = new Heap<int>();
+            heap.Add(5);
+            heap.Add(1);
+
+            heap.Remove(2);
+
+            Assert.AreEqual(2, heap.Count);
+            Assert.AreEqual(5, heap.Pop());
+            Assert.AreEqual(1, heap.Pop());
+        }
+
+        [Test]
+        public void IsReadOnlyTest()
+        {
+            Assert.IsFalse(new Heap<int>(HeapType.MinHeap).IsReadOnly);
+            Assert.IsFalse(new Heap<int>(HeapType.MaxHeap).IsReadOnly);
         }
     }
 }
